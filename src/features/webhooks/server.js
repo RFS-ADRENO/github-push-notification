@@ -23,7 +23,7 @@ app.post("/github-webhook", async (req, res) => {
             console.warn("Invalid GitHub webhook signature.");
         }
 
-        githubPushEventHandler({ payload: req.body });
+        githubPushEventHandler({ payload: req.body }).catch(console.error);
         res.status(200).send("OK");
     } catch (error) {
         console.error("Error processing GitHub webhook:", error);
