@@ -6,4 +6,5 @@ export const config = {
     githubWebhookSecret: process.env.GITHUB_WEBHOOK_SECRET || "",
 
     adminUID: process.env.ADMIN_UID || "7020318121810504398",
+    useZaloListener: process.env.USE_ZALO_LISTENER === "true" || false,
 };
