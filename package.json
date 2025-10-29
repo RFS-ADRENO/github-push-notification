@@ -1,0 +1,31 @@
+{
+    "name": "zca-github-push-notification",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config --config nodemon.json src/index.js",
+        "start": "cross-env NODE_ENV=production node -r dotenv/config src/index.js"
+    },
+    "dependencies": {
+        "cross-env": "^10.1.0",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "zca-js": "^2.0.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RFS-ADRENO/github-push-notification.git"
+    },
+    "keywords": [],
+    "author": "RFS-ADRENO",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/RFS-ADRENO/github-push-notification/issues"
+    },
+    "homepage": "https://github.com/RFS-ADRENO/github-push-notification#readme",
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
