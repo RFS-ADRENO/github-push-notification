@@ -6,9 +6,7 @@ import { githubPushEventHandler } from "./githubPushEventHandler.js";
 
 export const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
+app.use(express.raw({ type: "*/*" }));
 app.post("/github-webhook", async (req, res) => {
     try {
         if (
@@ -18,8 +16,7 @@ app.post("/github-webhook", async (req, res) => {
                 req.body
             )
         ) {
-            console.log("Received valid GitHub webhook event:", req.body);
-            githubPushEventHandler({ payload: req.body }).catch(console.error);
+            githubPushEventHandler({ payload: JSON.parse(req.body.toString("utf-8")) }).catch(console.error);
         } else {
             console.warn("Invalid GitHub webhook signature.");
         }
